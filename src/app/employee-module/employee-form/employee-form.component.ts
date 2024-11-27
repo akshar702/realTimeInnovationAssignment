@@ -45,7 +45,6 @@ export class EmployeeFormComponent {
       if (paramId) {
         this.editMode = true;
         this.currentEmployeeId = +paramId;
-        console.log(this.currentEmployeeId, 'currentEmployeeId');
         this.loadEmployeeDetails(this.currentEmployeeId);
       }
 
