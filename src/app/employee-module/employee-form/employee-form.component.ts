@@ -78,6 +78,7 @@ export class EmployeeFormComponent {
     if (this.employeeForm.invalid) return;
 
     const employeeData = this.employeeForm.value;
+    employeeData.name = employeeData?.name.trim();
     if (this.editMode) {
       // Update employee
       this.employeeService.updateEmployee(employeeData).subscribe((res:any) => {

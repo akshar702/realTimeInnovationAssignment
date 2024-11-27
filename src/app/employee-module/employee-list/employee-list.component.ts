@@ -39,7 +39,7 @@ export class EmployeeListComponent {
   getEmployeeList() {
     this.employeeService.getAllEmployees().subscribe({
       next: (res:any) => {
-        [this.currentEmployeeList, this.previousEmployeeList] = this.getCurrentAndPreviousEmployees(res, employee => (!employee?.endDate || new Date(employee?.endDate).getTime() > (new Date()).getTime()));
+        [this.currentEmployeeList, this.previousEmployeeList] = this.getCurrentAndPreviousEmployees(res, employee => (!employee?.endDate || new Date(employee?.endDate).setHours(0,0,0,0) >= (new Date()).setHours(0,0,0,0)));
       },
       error: (err:any) => {
         console.log(err);

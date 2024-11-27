@@ -1,6 +1,6 @@
  <!-- The toolbar of our app -->
 <mat-toolbar color="primary">
-  <span>Add Employee Details</span>
+  <span>{{editMode ? "Edit" : "Add"}} Employee Details</span>
   <span class="example-spacer"></span>
   <button mat-icon-button [routerLink]="['']" matTooltip="Back">
     <mat-icon>arrow_back</mat-icon>
@@ -48,7 +48,7 @@
         <mat-label>Start Date</mat-label>
         <input matInput readonly [matDatepicker]="startDate" (click)="startDate.open()" formControlName="startDate">
         <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-        <mat-datepicker #startDate></mat-datepicker>
+        <mat-datepicker #startDate [calendarHeaderComponent]="customDate"></mat-datepicker>
         <mat-error *ngIf="employeeForm.controls['startDate'].hasError('required')">
           Start date is required
         </mat-error>

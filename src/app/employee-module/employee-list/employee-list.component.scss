@@ -18,6 +18,13 @@ mat-card{
     border-radius: 0px;
     margin: 0px 1px;
 }
+
+mat-card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .currentEmp{
   border-bottom: transparent;
 }
@@ -35,6 +42,8 @@ mat-card{
 
 .header-left {
   display: flex;
+  position: absolute;
+  max-width: 50%;
   flex-direction: column; /* Stack title and subtitle vertically */
 }
 
