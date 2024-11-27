@@ -1,0 +1,92 @@
+.main-body {
+  max-width: 80%;
+  margin: 20px auto;
+}
+.action-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.employee-form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font: 20px sans-serif !important;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  mat-checkbox {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .employee-form-container {
+      padding: 15px;
+    }
+  
+    .form-title {
+      font-size: 18px;
+    }
+  }
+
+  ::ng-deep .mat-calendar-content{
+    height: 285px !important;
+  }
+
+  ::ng-deep .mat-datepicker-content{
+    position: relative !important;
+    top: 8px !important;
+  }
+
+  ::ng-deep .mat-datepicker-content-container{
+    flex-direction: column-reverse !important;
+  }
+
+  ::ng-deep .mat-datepicker-actions{
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0px 10px !important;
+    top: 12px;
+    position: relative;
+    div{
+      width: 100% !important;
+      display: flex;
+      padding: 4px;
+    }
+    button{
+      width: 50% !important;
+    }
+  }
+
+@media (orientation: landscape){
+  :ng-deep  .mat-datepicker-content-touch .mat-datepicker-content-container {
+    width: 64vh;
+    height: 80vh;
+  }
+}
+
+
+  

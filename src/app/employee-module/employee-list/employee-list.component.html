@@ -1,0 +1,76 @@
+<!-- The toolbar of our app -->
+<mat-toolbar color="primary">
+  <span>Employee List</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="onAddEmployee()" matTooltip="Create">
+    <mat-icon>add</mat-icon>
+  </button>
+ </mat-toolbar>
+ <!-- The body of our app -->
+ <div class="main-body">
+   <div class="currentEmpClass">
+    <!-- The header section -->
+     <mat-toolbar>
+      <span>Current Employees</span>
+    </mat-toolbar>
+     <!-- The current employee details table -->
+    <div *ngIf="currentEmployeeList.length === 0; else currentEmployeeListContent" class="noDataFound">
+      <p>No records found</p>  <!-- Display this if the list is empty -->
+      <br>
+    </div>
+    <ng-template #currentEmployeeListContent>
+     <mat-card appearance="outlined" *ngFor="let employee of currentEmployeeList" class="currentEmp">
+      <mat-card-header>
+        <div class="header-left">
+          <mat-card-title> {{employee.name | titlecase}} </mat-card-title>
+          <mat-card-subtitle> {{employee.position}} </mat-card-subtitle>
+          <mat-card-subtitle> From {{employee.startDate | date: 'dd MMMM, yyyy' }} </mat-card-subtitle>
+        </div>
+        <div class="action-button">
+           <button mat-icon-button (click)="onEditEmployee(employee.id)" matTooltip="Edit">
+            <mat-icon>edit</mat-icon>
+           </button>
+           <button mat-icon-button (click)="openDialog(employee.id)" matTooltip="Delete">
+            <mat-icon>delete</mat-icon>
+           </button>
+         </div>
+        </mat-card-header>
+      <br>
+     </mat-card>
+     </ng-template>
+  </div>
+
+  <div class="previousEmpClass">
+    <!-- The header section -->
+     <mat-toolbar>
+      <span>Previous Employees</span>
+    </mat-toolbar>
+     <!-- The previous employee details table -->
+     <div *ngIf="previousEmployeeList.length === 0; else previousEmployeeListContent" class="noDataFoundPrevious">
+      <p>No records found</p>  <!-- Display this if the list is empty -->
+      <br>
+     </div>
+     <ng-template #previousEmployeeListContent>
+     <mat-card appearance="outlined" *ngFor="let employee of previousEmployeeList" class="previousEmp">
+      <mat-card-header>
+         <div class="header-left">
+          <mat-card-title> {{employee.name | titlecase}} </mat-card-title>
+          <mat-card-subtitle> {{employee.position}} </mat-card-subtitle>
+          <mat-card-subtitle> From {{employee.startDate | date: 'dd MMMM, yyyy' }} </mat-card-subtitle>
+         </div>
+         <div class="action-button">
+           <button mat-icon-button (click)="onEditEmployee(employee.id)" matTooltip="Edit">
+            <mat-icon>edit</mat-icon>
+           </button>
+           <button mat-icon-button (click)="openDialog(employee.id)" matTooltip="Delete">
+            <mat-icon>delete</mat-icon>
+           </button>
+         </div>
+
+      </mat-card-header>
+      <br>
+     </mat-card>
+     </ng-template>
+  </div>
+
+ </div>

@@ -1,0 +1,84 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+mat-form-field {
+  width: 100%;
+  margin: auto;
+}
+.main-body {
+  max-width: 80%;
+  margin: 20px auto;
+}
+.action-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+mat-card{
+    border-radius: 0px;
+    margin: 0px 1px;
+}
+.currentEmp{
+  border-bottom: transparent;
+}
+.previousEmp{
+  border-bottom: 64px solid whitesmoke;
+}
+
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column; /* Stack title and subtitle vertically */
+}
+
+.action-button {
+  margin-left: auto; /* Pushes the button to the right */
+  padding: 8px; /* Optional: adds some padding to the button */
+}
+
+@media (max-width: 600px) {
+  .card-header {
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align content to the left */
+  }
+
+  .header-right {
+    justify-content: flex-start;
+    margin-top: 8px; /* Add space between the start date and the button */
+  }
+
+  .action-button{
+    flex-direction: row;
+    display: flex;
+  }
+}
+  /* css if no data found */
+
+.noDataFound{
+  height: 95px;
+  text-align: center;
+  padding-top: 15px;
+  border-right: 1px solid whitesmoke;
+  border-left: 1px solid whitesmoke;
+  p{
+    margin-top:30px
+  }
+}
+.noDataFoundPrevious{
+  height: 95px;
+  text-align: center;
+  padding-top: 15px;
+  border-right: 1px solid whitesmoke;
+  border-left: 1px solid whitesmoke;
+  border-bottom: 64px solid whitesmoke;
+  p{
+    margin-top:30px
+  }
+}

@@ -1,0 +1,41 @@
+<div class="header">
+
+  <div class="btn">
+     <button mat-raised-button color="primary" matDatepickerApply (click)="setPredefinedDate('today')">
+       Today
+     </button>
+     <button mat-raised-button color="primary" matDatepickerApply (click)="setPredefinedDate('nextMonday')">
+       Next Monday
+     </button>
+   </div>
+   <div class="btn">
+     <button mat-raised-button color="primary" matDatepickerApply (click)="setPredefinedDate('nextTuesday')">
+       Next Tuesday
+     </button>
+     <button mat-raised-button color="primary" matDatepickerApply (click)="setPredefinedDate('nextWeek')">
+       After 1 Week
+     </button>
+   </div>
+
+
+
+
+ </div>
+
+ <div class="footer">
+  <button mat-icon-button class="footer-double-arrow" (click)="previousClicked('year')">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <button mat-icon-button class="footer-arrow"  (click)="previousClicked('month')">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <span class="footer-label">{{periodLabel}}</span>
+  <button mat-icon-button class="footer-arrow"  (click)="nextClicked('month')">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+  <button mat-icon-button class="footer-double-arrow" (click)="nextClicked('year')">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

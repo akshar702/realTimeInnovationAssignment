@@ -1,0 +1,86 @@
+ <!-- The toolbar of our app -->
+<mat-toolbar color="primary">
+  <span>Add Employee Details</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [routerLink]="['']" matTooltip="Back">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button *ngIf="editMode" mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openDialog()">
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </mat-menu>
+ </mat-toolbar>
+ <!-- The body of our app -->
+ <div class="main-body">
+  <div class="employee-form-container">
+    <p class="form-title">Employee Information</p>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Name Field -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter employee name">
+        <mat-error *ngIf="employeeForm.controls['name'].hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+      
+      <!-- Position Field -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Position</mat-label>
+        <mat-select formControlName="position">
+          <mat-option *ngFor="let position of positions" [value]="position">
+            {{ position }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="employeeForm.controls['position'].hasError('required')">
+          Position is required
+        </mat-error>
+      </mat-form-field>
+      
+      <!-- Start Date Field -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Start Date</mat-label>
+        <input matInput readonly [matDatepicker]="startDate" (click)="startDate.open()" formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+        <mat-error *ngIf="employeeForm.controls['startDate'].hasError('required')">
+          Start date is required
+        </mat-error>
+      </mat-form-field>
+      
+      <!-- End Date Field -->
+     <mat-form-field appearance="fill" class="form-field endDate">
+  <mat-label>End Date</mat-label>
+  <input matInput readonly [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate" />
+  <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+  <!-- #docregion datepicker-actions -->
+  <mat-datepicker #endDate [calendarHeaderComponent]="customDate">
+  </mat-datepicker>
+  <!-- #enddocregion datepicker-actions -->
+  <mat-error *ngIf="employeeForm.controls['endDate'].hasError('required')">
+    End date is required
+  </mat-error>
+</mat-form-field>
+      <!-- Currently Working Checkbox -->
+      <mat-checkbox formControlName="isCurrentlyWorking">
+        Currently Working
+      </mat-checkbox>
+  
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="employeeForm.invalid">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+ </div>
+
+   
