@@ -51,7 +51,7 @@
       <br>
      </div>
      <ng-template #previousEmployeeListContent>
-     <mat-card appearance="outlined" *ngFor="let employee of previousEmployeeList" class="previousEmp">
+     <mat-card appearance="outlined" *ngFor="let employee of previousEmployeeList; let last = last;" [ngClass]="{'previousEmp': last}" class="previousEmp">
       <mat-card-header>
          <div class="header-left">
           <mat-card-title> {{employee.name | titlecase}} </mat-card-title>
